@@ -23,7 +23,7 @@ veuillez cocher les seules cases qui correspondent aux étapes validées.
 
 [x] la réception et l'affichage des messages reçus sont corrects
 
-[ ] l'échange de messages tq décrits dans le cahier des charges entre vos versions source et puit de la version 1 de "tsock" est opérationnel
+[x] l'échange de messages tq décrits dans le cahier des charges entre vos versions source et puit de la version 1 de "tsock" est opérationnel
 
 ## Avancement sur la version 2 de tsock
 La version 2 intègre l’utilisation de TCP pour l’échange des messages. Veuillez renseigner les étapes que vous avez traitées.  
