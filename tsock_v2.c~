@@ -100,6 +100,24 @@ void main (int argc, char **argv)
 		exit(1) ;
 	}
 
+	if (source == 1)
+		printf("on est dans le source\n");
+	else
+		printf("on est dans le puits\n");
+
+	if (nb_message != -1) {
+		if (source == 1)
+			printf("nb de tampons à envoyer : %d\n", nb_message);
+		else
+			printf("nb de tampons à recevoir : %d\n", nb_message);
+	} else {
+		if (source == 1) {
+			nb_message = 10 ;
+			printf("nb de tampons à envoyer = 10 par défaut\n");
+		} else
+		printf("nb de tampons à envoyer = infini\n");
+
+	}
 
 
 	/// Debut programme UDP ///
@@ -193,11 +211,10 @@ void main (int argc, char **argv)
 	  ////////////////////////////  TCP    ///////////////////////////////////////////////////
 	  int sock_bis;
 
+	  printf("ON EST EN TCP\n");
 	  // Puit //
 	  if(source == 0){
 
-	    printf("PUITS:lg_mesg_lu=%d, port=%d, nb_reception=%d, TP=%s\n", lg_message, atoi(argv[argc-1]), nb_message, "TCP");
-	    
 	    // Création socket
 	    sock = socket(AF_INET, SOCK_STREAM, 0);
 
@@ -225,7 +242,7 @@ void main (int argc, char **argv)
 	      exit(1);
 	    }
 
-	    
+	    printf("PUITS:lg_mesg_lu=%d, port=%d, nb_reception=%d, TP=%s\n", lg_message, atoi(argv[argc-1]), nb_message, "TCP");
 
 	    for(int i = 0; i<nb_message; i++){
 	      M = (char *)malloc(lg_message*sizeof(char));
@@ -235,13 +252,12 @@ void main (int argc, char **argv)
 		exit(1);
 	      }
 
-	       printf("PUITS : Reception n°%d (%d)", i+1, lg_message);
+	       printf("PUIT : Reception n°%d (%d)", i+1, lg_message);
 	       format_numero_message(i+1);
 	       afficher_message(M, lg_message-3);
 	       printf("]\n");
 	    
 	    } // end for
-	    printf("PUITS : fin\n");
 	  }else{ // end puit
 
 	    // Source //
@@ -294,10 +310,11 @@ void main (int argc, char **argv)
 	    printf("]\n");
 	    
 	    
-	    
 	  }
 	}
 	
 	  
 	}
 }	
+
+
