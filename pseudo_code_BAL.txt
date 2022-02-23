@@ -1,0 +1,44 @@
+
+// Emetteur
+
+- Création du socket
+- Construction @local distante
+- connexion avec BAL
+- Création message authentification
+  	   - role : emetteur
+  	   - Nombre de message à envoyer
+	   - Taille des messages
+- Envoie du message d'authetification
+- Envoie des lettres au serveur BAL
+
+// Recepteur
+
+- Création du socket
+- Construction @local distante
+- connexion avec BAL
+- Création message authentification
+  	   - role : recepteur
+- Envoie du message d'authetification
+- Reception réponse (nombre de lettre et taille)
+- Lecture des lettres
+- Affichage des lettres
+
+
+// Serveur de boite aux lettres
+
+- Création du socket
+- Construction @local
+- Association @local et socker --> bind()
+- Listen()
+- Récupération du message d'authetification
+
+- Si Emetteur
+     - on regarde si il existe une boite au lettre pour cet identifiant
+     - si non on la créer, si oui sauter cette étape
+     - on récupère les messages et on les ajoute a la boite aux lettres
+
+- Si Recepteur
+     - Si boite aux lettre vide renvoyer BAL vide 
+     - Sinon envoie message avec info : nombre de lettre et taille des lettres
+     - Envoie des lettres
+     - suppressiond e la boite aux lettres correspondante

@@ -275,12 +275,12 @@ void main (int argc, char **argv)
 	    memset((char*)&adr_local, 0, sizeof(adr_local));
 	    adr_local.sin_family = AF_INET;
 	    adr_local.sin_port = htons(atoi(argv[argc-1]));
-		adr_local.sin_addr.s_addr = INADDR_ANY;
+	    adr_local.sin_addr.s_addr = INADDR_ANY;
 
-		if(bind(sock, (struct sockaddr *)&adr_local, sizeof(adr_local)) == -1){
+	    if(bind(sock, (struct sockaddr *)&adr_local, sizeof(adr_local)) == -1){
 			perror("erreur bind");
 			exit(1);
-		}
+	    }
 
 	    if(listen(sock, 30) == -1){
 	      printf("echec du listen");
